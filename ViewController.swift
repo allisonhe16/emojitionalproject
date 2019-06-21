@@ -18,6 +18,15 @@ class ViewController: UIViewController {
         "🥐" : "croissant",
         "🍮" : "pudding"
     ]
+    
+    var customMessages = [
+        "chef" : "Bon Appetit!",
+        "cake" : "J'adore le gateau",
+        "baguette" : "Le pain est un gouter",
+        "coffee" : "La cafeine n'est pas saine",
+        "croissant" : "Je ne vive pas sans un croissant",
+        "pudding" : "Le pudding est delicieux"
+    ]
         override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,7 +37,8 @@ class ViewController: UIViewController {
     
     @IBAction func showMessage(_sender: UIButton) {
         let selectedEmotion = _sender.titleLabel?.text
-        let alertController = UIAlertController(title: "Cafe du Monde", message: emojis[selectedEmotion!],  preferredStyle : UIAlertController.Style.alert)
+        let emojiMessage = customMessages[emojis[selectedEmotion!]!]
+        let alertController = UIAlertController(title: "Cafe du Monde", message: emojiMessage, preferredStyle : UIAlertController.Style.alert)
         
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
