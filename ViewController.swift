@@ -9,8 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    override func viewDidLoad() {
+
+    let emojis = [
+        "👨🏻‍🍳" : "chef",
+        "🍰" : "cake",
+        "🥖" : "baguette",
+        "☕️" : "coffee",
+        "🥐" : "croissant",
+        "🍮" : "pudding"
+    ]
+        override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
@@ -19,7 +27,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func showMessage(_sender: UIButton) {
-        let alertController = UIAlertController(title: "title", message: "hey", preferredStyle: UIAlertController.Style.alert)
+        let selectedEmotion = _sender.titleLabel?.text
+        let alertController = UIAlertController(title: "Cafe du Monde", message: emojis[selectedEmotion!],  preferredStyle : UIAlertController.Style.alert)
         
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
